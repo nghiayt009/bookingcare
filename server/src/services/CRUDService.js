@@ -26,7 +26,7 @@ let createNewUser = async (data) => {
 let hasUserPassword = (password) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let hashPassword = await bcrypt.hashSync("B4c0//", salt);
+      let hashPassword = await bcrypt.hashSync(password, salt);
       resolve(hashPassword);
     } catch (e) {
       reject(e);
@@ -85,20 +85,20 @@ let updateUserData = (data) => {
   });
 };
 let deleteUser = (userId) => {
-  return new Promise(async(resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       let user = await db.User.findOne({
-        where: { id: userId}
-      })
-      if(user) {
+        where: { id: userId },
+      });
+      if (user) {
         await user.destroy();
       }
       resolve();
     } catch (e) {
       reject(e);
     }
-  })
-}
+  });
+};
 module.exports = {
   createNewUser: createNewUser,
   getAllUsers: getAllUsers,
