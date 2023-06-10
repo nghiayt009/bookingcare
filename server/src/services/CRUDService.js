@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 const salt = bcrypt.genSaltSync(10);
 
 let createNewUser = async (data) => {
+  console.log(data);
   return new Promise(async (resolve, reject) => {
     try {
       let hashPasswordFromBrypt = await hasUserPassword(data.password);
