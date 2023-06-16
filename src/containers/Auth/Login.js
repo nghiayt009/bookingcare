@@ -79,7 +79,7 @@ class Login extends Component {
                 />
                 <span onClick={() => this.handleShowHidePassword()}>
                   <i
-                    class={
+                    className={
                       this.state.isShowPassword
                         ? "fas fa-eye-slash"
                         : "far fa-eye"
@@ -122,7 +122,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     navigate: (path) => dispatch(push(path)),
-    userLoginSuccess: (userInfor) => dispatch(actions.userLoginSuccess(userInfor)),
+    userLoginSuccess: (userInfor) =>
+      dispatch(actions.userLoginSuccess(userInfor)),
   };
 };
 
